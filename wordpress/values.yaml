@@ -11,10 +11,10 @@ image:
   tag: "5.8"
 
 env:
-  host: mysql
-  user: admin
-  db: mydb
-  userPasswd: adminPasswd
+  db_host: mysql
+  db_user: admin
+  db_name: mydb
+  db_passwd: adminPasswd
 
 imagePullSecrets: []
 nameOverride: ""

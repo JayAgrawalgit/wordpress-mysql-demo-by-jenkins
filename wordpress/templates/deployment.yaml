@@ -39,13 +39,13 @@ spec:
               protocol: TCP
           env:
             - name: WORDPRESS_DB_HOST
-              value: {{ .Values.env.host }}
+              value: {{ .Values.env.db_host }}
             - name: WORDPRESS_DB_NAME
-              value: {{ .Values.env.db }}
+              value: {{ .Values.env.db_name }}
             - name: WORDPRESS_DB_USER
-              value: {{ .Values.env.user }}
+              value: {{ .Values.env.db_user }}
             - name: WORDPRESS_DB_PASSWORD
-              value: {{ .Values.env.userPasswd }}
+              value: {{ .Values.env.db_passwd }}
 
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

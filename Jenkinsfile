@@ -25,12 +25,12 @@ spec:
         }
         stage('helm install mysql'){
             steps{
-                sh 'helm upgrade --install mysql sql'
+                sh 'helm upgrade --install mysql sql -n demo'
             }
         }
         stage('helm install wordpress'){
             steps{
-                sh 'helm upgrade --install wp wordpress'
+                sh 'helm upgrade --install wp wordpress -n demo'
             }
         }
     }

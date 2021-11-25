@@ -42,7 +42,7 @@ kubectl get pods -namespace demo
 NAME              READY   STATUS    RESTARTS       AGE
 helm-jenkins-0    0/2     Running   0               1m
 ```
->It will take 5-10 mins according to your machine Configuration, repeat the 4th command, until the addition of all containers in the pool. 
+>It will take 5-10 mins according to your machine Configuration, repeat 4th command, until the addition of all containers in the pool. 
 ```final output
 NAME              READY   STATUS    RESTARTS       AGE
 helm-jenkins-0    2/2     Running   0              10m

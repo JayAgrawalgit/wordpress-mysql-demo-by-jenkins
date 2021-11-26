@@ -71,7 +71,29 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.0/b
   && mv ./kubectl /usr/local/bin/kubectl
 USER jenkins
 ```
-
+3. Stages in Jenkinfiles:  
+**Here we are creating 2 jenkinsfile for WordPress & MySQL for seperate pipeline and 1 jenkinsfile is for deploying both WordPress & MySQL in single pipeline.**  
+```Jenkinsfile
+    stages {
+        stage('version cheak') {
+            steps {
+                sh 'helm version'
+                sh 'kubectl version'
+            }
+        }
+        stage('helm install mysql'){
+            steps{
+                sh 'helm upgrade --install mysql sql -n demo'
+            }
+        }
+        stage('helm install wordpress'){
+            steps{
+                sh 'helm upgrade --install wp wordpress -n demo'
+            }
+        }
+    }
+```
+Given above stages is for Jenkinsfile for deploying both WordPress & MySQL in one pipline. Where as If you continue with only stage1 and stage2 and remove stage3 i.e. `helm install wordpress` then you can use same file for Jenkinsfile1 and with stage1 and stage3 i.e. if you remove stage2 `helm install mysql` then the same file is used as jenkinsfile2.
 ### Step 2: Install Jenkins in minikube Jenkins 
 1. You can refer to [official documents for Jenkins installation](https://github.com/jenkinsci/helm-charts/blob/main/charts/jenkins/README.md)
 and skip `step 2: Install Jenkins in minikube Jenkins` or you can continue with us.

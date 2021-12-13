@@ -51,7 +51,6 @@ FROM jenkins/inbound-agent:$version
 LABEL maintainer='Jay Agrawal'
 
 ARG HELM_VERSION=3.5.2
-ENV MAVEN_VERSION=3.5.4
 
 USER root
 RUN apt-get update && apt-get install curl
